@@ -25,6 +25,6 @@ new EpochWatcherService({
 getEpochWatcherInfo: () => redisClient.get(key),
 setEpochWatcherInfo: (info) => redisClient.set(key, info, TTL), /* 1 day */,
 loadElrondStats: () => elrondApi.getStats(),
-callback: (info) => { console.log(`Epoch has changed. New epoch: ${info.newEpoch}.`);},
+callback: (info) => { console.log(`Epoch has changed. New epoch: ${info.newEpoch}.`); },
 }).execute();
 ```
