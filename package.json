@@ -1,6 +1,6 @@
 {
   "name": "@elrondnetwork/epoch-watcher",
-  "version": "0.1.23",
+  "version": "1.0.0",
   "description": "Real-time epoch-watcher",
   "main": "lib/epoch-watcher.js",
   "types": "lib/epoch-watcher.d.ts",
