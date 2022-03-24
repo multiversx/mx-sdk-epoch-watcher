@@ -23,8 +23,25 @@ Elrond Stats must be loaded from an instance of [Elrond API](https://github.com/
 ```ts
 await new EpochWatcher({
 getEpochWatcherInfo: () => redisClient.get(key),
-setEpochWatcherInfo: (info) => redisClient.set(key, info, TTL), /* 1 day */,
+setEpochWatcherInfo: (epochWatcherInfo) => redisClient.set(key, info, TTL), /* 1 day */,
 loadElrondStats: () => elrondApi.getStats(),
 callback: (info) => { console.log(`Epoch has changed. New epoch: ${info.newEpoch}.`); },
 }).execute();
+```
+
+Models:
+
+
+```ts
+export class EpochChangedInfo {
+  newEpoch: number;
+}
+```
+
+```ts
+export class EpochWatcherInfo {
+  statsLoadTime: number;
+  timeLeftUntilEpochChange: number;
+  epoch: number;
+}
 ```
