@@ -6,3 +6,7 @@
 </div>
 
 # Epoch Watcher
+
+Package for monitoring when an epoch changes.
+
+
