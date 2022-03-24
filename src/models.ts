@@ -5,14 +5,14 @@ export class EpochWatcherInfo {
 }
 
 export interface ElrondStatsDto {
-  shards: number,
-  blocks: number,
-  accounts: number,
-  transactions: number,
-  refreshRate: number,
-  epoch: number,
-  roundsPassed: number,
-  roundsPerEpoch: number
+  shards: number;
+  blocks: number;
+  accounts: number;
+  transactions: number;
+  refreshRate: number;
+  epoch: number;
+  roundsPassed: number;
+  roundsPerEpoch: number;
 }
 
 export class EpochChangedInfo {
