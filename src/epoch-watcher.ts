@@ -1,4 +1,4 @@
-export class EpochWatcherService {
+export class EpochWatcher {
   private readonly config: EpochWatcherConfiguration;
 
   constructor(config: EpochWatcherConfiguration) {

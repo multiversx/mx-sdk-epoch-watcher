@@ -21,7 +21,7 @@ Elrond Stats must be loaded from an instance of [Elrond API](https://github.com/
 ## **Usage**
 
 ```ts
-new EpochWatcherService({
+await new EpochWatcher({
 getEpochWatcherInfo: () => redisClient.get(key),
 setEpochWatcherInfo: (info) => redisClient.set(key, info, TTL), /* 1 day */,
 loadElrondStats: () => elrondApi.getStats(),
