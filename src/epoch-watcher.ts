@@ -1,12 +1,3 @@
-import { ElrondStatsDto, EpochChangedInfo, EpochWatcherInfo } from './models';
-
-export interface EpochWatcherConfiguration {
-  getEpochWatcherInfo: () => Promise<EpochWatcherInfo | undefined>;
-  setEpochWatcherInfo: (info: EpochWatcherInfo) => Promise<void>;
-  loadElrondStats: () => Promise<ElrondStatsDto | undefined>;
-  callback: (info: EpochChangedInfo) => Promise<void>;
-}
-
 export class EpochChangeWatcher {
   private readonly config: EpochWatcherConfiguration;
 
@@ -83,4 +74,32 @@ export class EpochChangeWatcher {
   private loadStats(): Promise<ElrondStatsDto | undefined> {
     return this.config.loadElrondStats();
   }
+}
+
+export class EpochWatcherInfo {
+  statsLoadTime: number;
+  timeLeftUntilEpochChange: number;
+  epoch: number;
+}
+
+export interface ElrondStatsDto {
+  shards: number;
+  blocks: number;
+  accounts: number;
+  transactions: number;
+  refreshRate: number;
+  epoch: number;
+  roundsPassed: number;
+  roundsPerEpoch: number;
+}
+
+export class EpochChangedInfo {
+  newEpoch: number;
+}
+
+export interface EpochWatcherConfiguration {
+  getEpochWatcherInfo: () => Promise<EpochWatcherInfo | undefined>;
+  setEpochWatcherInfo: (info: EpochWatcherInfo) => Promise<void>;
+  loadElrondStats: () => Promise<ElrondStatsDto | undefined>;
+  callback: (info: EpochChangedInfo) => Promise<void>;
 }
