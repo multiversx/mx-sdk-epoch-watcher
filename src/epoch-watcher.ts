@@ -8,7 +8,7 @@ export class EpochWatcher {
   async execute(): Promise<void> {
     const epochWatcherInfo = await this.config.getEpochWatcherInfo();
     if (!epochWatcherInfo) {
-      await this.loadAndCacheElrondStats();
+      await this.loadAndStore();
       return;
     }
 
@@ -44,7 +44,7 @@ export class EpochWatcher {
     return estimatedEpochChangeTime < Date.now();
   }
 
-  private async loadAndCacheElrondStats(): Promise<void> {
+  private async loadAndStore(): Promise<void> {
     const now = Date.now();
     const stats = await this.loadStats();
     if (!stats) {
