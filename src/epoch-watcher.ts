@@ -56,7 +56,7 @@ export class EpochWatcher {
 
   private async storeEpochWatcherInfo(
     now: number,
-    stats: ElrondStatsDto,
+    stats: MultiversXStatsDto,
   ): Promise<void> {
     await this.config.setEpochWatcherInfo({
       statsLoadTime: now,
@@ -66,13 +66,13 @@ export class EpochWatcher {
   }
 
   private getTimeLeftUntilEpochChange(
-    stats: ElrondStatsDto,
+    stats: MultiversXStatsDto,
   ): number {
     return (stats.roundsPerEpoch - stats.roundsPassed) * 6 * 1000;
   }
 
-  private loadStats(): Promise<ElrondStatsDto | undefined> {
-    return this.config.loadElrondStats();
+  private loadStats(): Promise<MultiversXStatsDto | undefined> {
+    return this.config.loadMultiversXStats();
   }
 }
 
@@ -82,7 +82,7 @@ export class EpochWatcherInfo {
   epoch: number;
 }
 
-export interface ElrondStatsDto {
+export interface MultiversXStatsDto {
   shards: number;
   blocks: number;
   accounts: number;
@@ -100,6 +100,6 @@ export class EpochChangedInfo {
 export interface EpochWatcherConfiguration {
   getEpochWatcherInfo: () => Promise<EpochWatcherInfo | undefined>;
   setEpochWatcherInfo: (info: EpochWatcherInfo) => Promise<void>;
-  loadElrondStats: () => Promise<ElrondStatsDto | undefined>;
+  loadMultiversXStats: () => Promise<MultiversXStatsDto | undefined>;
   callback: (info: EpochChangedInfo) => Promise<void>;
 }
