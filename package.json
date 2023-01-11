@@ -1,6 +1,6 @@
 {
-  "name": "@elrondnetwork/epoch-watcher",
-  "version": "1.0.1",
+  "name": "@multiversx/epoch-watcher",
+  "version": "1.0.2",
   "description": "Real-time epoch-watcher",
   "main": "lib/epoch-watcher.js",
   "types": "lib/epoch-watcher.d.ts",
@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ElrondNetwork/epoch-watcher.git"
+    "url": "git+https://github.com/multiversx/mx-sdk-epoch-watcher.git"
   },
   "keywords": [
-    "elrond",
+    "multiversx",
     "epoch",
     "watcher"
   ],
-  "author": "ElrondNetwork",
+  "author": "MultiversX",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
     "@types/node": "^16.11.10",
