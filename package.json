@@ -1,5 +1,5 @@
 {
-  "name": "@multiversx/epoch-watcher",
+  "name": "@multiversx/sdk-epoch-watcher",
   "version": "1.0.2",
   "description": "Real-time epoch-watcher",
   "main": "lib/epoch-watcher.js",
